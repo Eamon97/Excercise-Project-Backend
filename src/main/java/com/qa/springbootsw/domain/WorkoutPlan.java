@@ -20,5 +20,7 @@ public class WorkoutPlan {
 	
 	@ManyToMany
 	private Excercise excercise;
+	
+	
 
 }

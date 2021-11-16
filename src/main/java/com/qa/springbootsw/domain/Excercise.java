@@ -1,6 +1,6 @@
 package com.qa.springbootsw.domain;
 
-import java.util.Objects;
+
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
