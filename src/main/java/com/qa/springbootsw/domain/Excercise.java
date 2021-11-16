@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Excercise {
@@ -26,26 +27,32 @@ public class Excercise {
 	
 	@Column(nullable = false)
 	private int noOfSets;
+	
+	@ManyToOne
+	private WorkoutPlan workoutPlan;
 
 	public Excercise() {
 		super();
 	}
 
-	public Excercise(long excerciseID, String excerciseName, String muscleTargeted, int noOfReps, int noOfSets) {
+	public Excercise(long excerciseID, String excerciseName, String muscleTargeted, int noOfReps, int noOfSets,
+			WorkoutPlan workoutPlan) {
 		super();
 		this.excerciseID = excerciseID;
 		this.excerciseName = excerciseName;
 		this.muscleTargeted = muscleTargeted;
 		this.noOfReps = noOfReps;
 		this.noOfSets = noOfSets;
+		this.workoutPlan = workoutPlan;
 	}
 
-	public Excercise(String excerciseName, String muscleTargeted, int noOfReps, int noOfSets) {
+	public Excercise(String excerciseName, String muscleTargeted, int noOfReps, int noOfSets, WorkoutPlan workoutPlan) {
 		super();
 		this.excerciseName = excerciseName;
 		this.muscleTargeted = muscleTargeted;
 		this.noOfReps = noOfReps;
 		this.noOfSets = noOfSets;
+		this.workoutPlan = workoutPlan;
 	}
 
 	public long getExcerciseID() {
@@ -88,10 +95,19 @@ public class Excercise {
 		this.noOfSets = noOfSets;
 	}
 
+	public WorkoutPlan getWorkoutPlan() {
+		return workoutPlan;
+	}
+
+	public void setWorkoutPlan(WorkoutPlan workoutPlan) {
+		this.workoutPlan = workoutPlan;
+	}
+
 	@Override
 	public String toString() {
 		return "Excercise [excerciseID=" + excerciseID + ", excerciseName=" + excerciseName + ", muscleTargeted="
-				+ muscleTargeted + ", noOfReps=" + noOfReps + ", noOfSets=" + noOfSets + "]";
+				+ muscleTargeted + ", noOfReps=" + noOfReps + ", noOfSets=" + noOfSets + ", workoutPlan=" + workoutPlan
+				+ "]";
 	}
 
 	@Override
@@ -103,6 +119,7 @@ public class Excercise {
 		result = prime * result + ((muscleTargeted == null) ? 0 : muscleTargeted.hashCode());
 		result = prime * result + noOfReps;
 		result = prime * result + noOfSets;
+		result = prime * result + ((workoutPlan == null) ? 0 : workoutPlan.hashCode());
 		return result;
 	}
 
@@ -131,15 +148,20 @@ public class Excercise {
 			return false;
 		if (noOfSets != other.noOfSets)
 			return false;
+		if (workoutPlan == null) {
+			if (other.workoutPlan != null)
+				return false;
+		} else if (!workoutPlan.equals(other.workoutPlan))
+			return false;
 		return true;
 	}
 
 	
+
 	
 	
 	
-	
-	
+
 	
 	
 
