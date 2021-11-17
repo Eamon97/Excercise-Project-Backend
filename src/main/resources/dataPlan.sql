@@ -9,5 +9,5 @@ INSERT into Excercise (excerciseName,muscleTargeted,noOfReps,noOfSets) Values
 INSERT into WorkoutPlanDB (dayOfWeek,excerciseID) VALUES ("monday",(1,3,4,2));
 INSERT into WorkoutPlanDB (dayOfWeek,excerciseID) VALUES("thursday",(2,5,3));
 INSERT into WorkoutPlanDB (dayOfWeek,excerciseID) VALUES("friday",(4,5,6);
-INSERT into WorkoutPlanDB (dayOfWeek,excerciseID) VALUES
+INSERT into WorkoutPlanDB (dayOfWeek,excerciseID) VALUES("friday",(1,3,4);
 INSERT into WorkoutPlanDB (dayOfWeek,excerciseID) VALUES
