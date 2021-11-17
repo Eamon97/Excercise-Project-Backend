@@ -16,10 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.qa.springbootsw.domain.WorkoutPlan;
 import com.qa.springbootsw.services.WorkoutService;
 
-
-
-
-
 @RestController
 	@RequestMapping("/WorkoutPlan") // http://localhost:9000/WorkoutPlan/...
 public class WorkoutController {
@@ -30,9 +26,7 @@ public class WorkoutController {
 			this.service = service;
 		}
 	
-	
-	
-	
+
 	 @PostMapping("/create")
 	 public ResponseEntity<WorkoutPlan> addWorkout(@RequestBody WorkoutPlan workoutplan) {
 		 return new ResponseEntity<WorkoutPlan>(this.service.create(workoutplan), HttpStatus.CREATED);
