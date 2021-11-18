@@ -34,7 +34,14 @@ public class Excercise {
 	public Excercise() {
 		super();
 	}
-
+	
+public Excercise(String excerciseName, String muscleTargeted, int noOfReps, int noOfSets) {
+		super();
+		this.excerciseName = excerciseName;
+		this.muscleTargeted = muscleTargeted;
+		this.noOfReps = noOfReps;
+		this.noOfSets = noOfSets;
+	}
 	public Excercise(long excerciseID, String excerciseName, String muscleTargeted, int noOfReps, int noOfSets,
 			WorkoutPlan workoutPlan) {
 		super();
@@ -46,7 +53,8 @@ public class Excercise {
 		this.workoutPlan = workoutPlan;
 	}
 
-	public Excercise(String excerciseName, String muscleTargeted, int noOfReps, int noOfSets, WorkoutPlan workoutPlan) {
+	
+public Excercise(String excerciseName, String muscleTargeted, int noOfReps, int noOfSets, WorkoutPlan workoutPlan) {
 		super();
 		this.excerciseName = excerciseName;
 		this.muscleTargeted = muscleTargeted;
@@ -55,15 +63,6 @@ public class Excercise {
 		this.workoutPlan = workoutPlan;
 	}
 	
-
-	public Excercise(String excerciseName, String muscleTargeted, int noOfReps, int noOfSets) {
-		super();
-		this.excerciseName = excerciseName;
-		this.muscleTargeted = muscleTargeted;
-		this.noOfReps = noOfReps;
-		this.noOfSets = noOfSets;
-	}
-
 	public long getExcerciseID() {
 		return excerciseID;
 	}
