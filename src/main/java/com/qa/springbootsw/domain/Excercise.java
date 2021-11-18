@@ -54,6 +54,15 @@ public class Excercise {
 		this.noOfSets = noOfSets;
 		this.workoutPlan = workoutPlan;
 	}
+	
+
+	public Excercise(String excerciseName, String muscleTargeted, int noOfReps, int noOfSets) {
+		super();
+		this.excerciseName = excerciseName;
+		this.muscleTargeted = muscleTargeted;
+		this.noOfReps = noOfReps;
+		this.noOfSets = noOfSets;
+	}
 
 	public long getExcerciseID() {
 		return excerciseID;
