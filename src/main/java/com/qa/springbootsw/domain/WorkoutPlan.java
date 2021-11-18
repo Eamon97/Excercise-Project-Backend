@@ -27,6 +27,22 @@ public class WorkoutPlan {
 	@OneToMany(mappedBy="workoutPlan")
 	private List<Excercise> excercises;
 
+	
+	
+	public WorkoutPlan() {	}
+
+	public WorkoutPlan(String dayOfWeek, List<Excercise> excercises) {
+		this.dayOfWeek = dayOfWeek;
+		this.excercises = excercises;
+	}
+
+	public WorkoutPlan(Long sessionID, String dayOfWeek, List<Excercise> excercises) {
+		super();
+		this.sessionID = sessionID;
+		this.dayOfWeek = dayOfWeek;
+		this.excercises = excercises;
+	}
+
 	public Long getSessionID() {
 		return sessionID;
 	}
