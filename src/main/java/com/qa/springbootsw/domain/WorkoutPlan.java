@@ -11,7 +11,7 @@ import javax.persistence.Id;
 
 import javax.persistence.OneToMany;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 @Entity
 public class WorkoutPlan {
@@ -23,7 +23,7 @@ public class WorkoutPlan {
 	@Column
 	private String dayOfWeek;
 	
-	@JsonIgnore
+	
 	@OneToMany(mappedBy="workoutPlan")
 	private List<Excercise> excercises;
 

@@ -2,11 +2,13 @@ package com.qa.springbootsw.services;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
 
 import com.qa.springbootsw.domain.WorkoutPlan;
 
 import com.qa.springbootsw.repo.WorkoutRepo;
 
+@Service
 public class WorkoutService {
 	
 private WorkoutRepo repo;

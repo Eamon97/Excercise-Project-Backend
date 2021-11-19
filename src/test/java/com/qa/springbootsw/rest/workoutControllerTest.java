@@ -7,6 +7,8 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
@@ -39,7 +41,8 @@ public class workoutControllerTest {
 	@Autowired
 	private ObjectMapper mapper; 
 
-	private List<Excercise> excercises;
+	private List<Excercise> excercises=Collections.unmodifiableList(new ArrayList<>());
+	
 	
 	@Test
 	void testCreate() throws Exception {

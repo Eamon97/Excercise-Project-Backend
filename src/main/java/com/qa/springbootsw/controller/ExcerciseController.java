@@ -18,6 +18,7 @@ import com.qa.springbootsw.services.ExcerciseService;
 
 
 
+
 @RestController
 	@RequestMapping("/Excercise") // http://localhost:9000/Excercise/...
 public class ExcerciseController {
