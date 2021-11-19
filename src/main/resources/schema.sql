@@ -1,3 +1,5 @@
+CREATE SCHEMA IF NOT EXISTS WorkoutPlanDB;
+use WorkoutPlanDB;
 
 	DROP TABLE IF EXISTS `Excercise` CASCADE;
 CREATE TABLE `Excercise`(

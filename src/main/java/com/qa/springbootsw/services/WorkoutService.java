@@ -27,13 +27,13 @@ private WorkoutRepo repo;
 		}
 		
 		// Read One
-		public WorkoutPlan getOne(Long id) {
-			return this.repo.findById(id).get();
+		public WorkoutPlan getOne(Long sessionID) {
+			return this.repo.findById(sessionID).get();
 		}
 		
 		// Update
-	    public WorkoutPlan update(Long id, WorkoutPlan workoutPlan) {
-	    	WorkoutPlan existing = this.repo.findById(id).get();
+	    public WorkoutPlan update(Long sessionID, WorkoutPlan workoutPlan) {
+	    	WorkoutPlan existing = this.repo.findById(sessionID).get();
 	    	
 	    	existing.setDayOfWeek(workoutPlan.getDayOfWeek());
 	 
@@ -42,11 +42,13 @@ private WorkoutRepo repo;
 	
 	    	return this.repo.saveAndFlush(existing);
 	    }
-
-	    public boolean delete(Long id) {
+	    
+	    
+	    //delete
+	    public boolean delete(Long sessionID) {
 	        
-	    	this.repo.deleteById(id);
-	        return !this.repo.existsById(id);
+	    	this.repo.deleteById(sessionID);
+	        return !this.repo.existsById(sessionID);
 	    }
 	    
 	   

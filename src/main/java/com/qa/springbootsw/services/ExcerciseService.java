@@ -27,13 +27,13 @@ private ExcerciseRepo repo;
 		}
 		
 		// Read One
-		public Excercise getOne(Long id) {
-			return this.repo.findById(id).get();
+		public Excercise getOne(Long excerciseID) {
+			return this.repo.findById(excerciseID).get();
 		}
 		
 		// Update
-	    public Excercise update(Long id, Excercise excercise) {
-	    	Excercise existing = this.repo.findById(id).get();
+	    public Excercise update(Long excerciseID, Excercise excercise) {
+	    	Excercise existing = this.repo.findById(excerciseID).get();
 	    	
 	    	existing.setExcerciseName(excercise.getExcerciseName());
 	    	existing.setMuscleTargeted(excercise.getMuscleTargeted());
@@ -45,10 +45,10 @@ private ExcerciseRepo repo;
 	    }
 
 	    //delete
-	    public boolean delete(Long id) {
+	    public boolean delete(Long excerciseID) {
 	        
-	    	this.repo.deleteById(id);
-	        return !this.repo.existsById(id);
+	    	this.repo.deleteById(excerciseID);
+	        return !this.repo.existsById(excerciseID);
 	    }
 	    
 	   

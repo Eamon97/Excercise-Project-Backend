@@ -39,16 +39,18 @@ public class workoutControllerTest {
 	@Autowired
 	private ObjectMapper mapper; 
 
+	private List<Excercise> excercises;
+	
 	@Test
 	void testCreate() throws Exception {
 		
-		WorkoutPlan wp1 = new WorkoutPlan("tuesday", 2);
+		WorkoutPlan wp1 = new WorkoutPlan("tuesday", excercises);
 		String wp1AsJSON = this.mapper.writeValueAsString(wp1);
-		RequestBuilder request = post("/Excercise/create").contentType(MediaType.APPLICATION_JSON).content(wp1AsJSON);
+		RequestBuilder request = post("/WorkoutPlan/create").contentType(MediaType.APPLICATION_JSON).content(wp1AsJSON);
 
 		ResultMatcher checkStatus = status().isCreated(); 
 
-		WorkoutPlan wpSaved = new WorkoutPlan("tuesday", (1,3,5));
+		WorkoutPlan wpSaved = new WorkoutPlan("tuesday",excercises);
 		String wpSavedAsJSON = this.mapper.writeValueAsString(wpSaved);
 
 		ResultMatcher checkBody = content().json(wpSavedAsJSON);
@@ -60,7 +62,7 @@ public class workoutControllerTest {
 	
 	@Test
 	void testGet() throws Exception {
-		WorkoutPlan wp1 = new WorkoutPlan("tuesday", (1,3,5));
+		WorkoutPlan wp1 = new WorkoutPlan("tuesday", excercises);
 		
 		String wpAsJSON = this.mapper.writeValueAsString(wp1);
 		RequestBuilder request = get("/WorkoutPlan/getOne/1");
@@ -74,7 +76,7 @@ public class workoutControllerTest {
 
 	@Test
 	void testGetAll() throws Exception {
-		WorkoutPlan wp1 = new WorkoutPlan("friday", (2,4));
+		WorkoutPlan wp1 = new WorkoutPlan("friday", excercises);
 		String wpJSON = this.mapper.writeValueAsString(List.of(wp1));
 		RequestBuilder request = get("/WorkoutPlan/getAll");
 
@@ -89,13 +91,13 @@ public class workoutControllerTest {
 
 	@Test
 	void testUpdate() throws Exception {
-		WorkoutPlan wp1 = new WorkoutPlan("tuesday",[1,3,5]);
+		WorkoutPlan wp1 = new WorkoutPlan("tuesday",excercises);
 		String wpAsJSON = this.mapper.writeValueAsString(wp1);
 		RequestBuilder request = put("/WorkoutPlan/update/1").contentType(MediaType.APPLICATION_JSON).content(wpAsJSON);
 
 		ResultMatcher checkStatus = status().isAccepted(); 
 
-		WorkoutPlan wp2 = new WorkoutPlan("thursday",[2,3]);
+		WorkoutPlan wp2 = new WorkoutPlan("thursday",excercises);
 		String wp2SavedAsJSON = this.mapper.writeValueAsString(wp2);
 
 		ResultMatcher checkBody = content().json(wp2SavedAsJSON);
