@@ -42,7 +42,7 @@ public class workoutControllerTest {
 	@Test
 	void testCreate() throws Exception {
 		
-		WorkoutPlan wp1 = new WorkoutPlan("tuesday", (1,3,5));
+		WorkoutPlan wp1 = new WorkoutPlan("tuesday", 2);
 		String wp1AsJSON = this.mapper.writeValueAsString(wp1);
 		RequestBuilder request = post("/Excercise/create").contentType(MediaType.APPLICATION_JSON).content(wp1AsJSON);
 

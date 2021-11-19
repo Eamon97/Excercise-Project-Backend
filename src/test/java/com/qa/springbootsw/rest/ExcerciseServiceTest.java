@@ -12,6 +12,7 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 
+
 import com.qa.springbootsw.domain.Excercise;
 import com.qa.springbootsw.repo.ExcerciseRepo;
 import com.qa.springbootsw.services.ExcerciseService;
@@ -47,5 +48,28 @@ public class ExcerciseServiceTest {
 		
 		Mockito.verify(this.repo, Mockito.times(1)).findAll();
 	}
+	
+	
+	/*@Test
+	public void testUpdate() {
+		Excercise updated = new Excercise(1L, "leg press", "legs", 5, 5);
+
+		Mockito.when(this.repo.findById()).thenReturn(1L);
+		
+		Mockito.when(this.repo.getString()).thenReturn(updated.getExcerciseName());
+    	Mockito.when(this.repo.getString()).thenReturn(updated.getMuscleTargeted());
+    	Mockito.when(this.repo.getInt()).thenReturn(updated.getNoOfSets());
+		Mockito.when(this.repo.getInt()).thenReturn(updated.getNoOfReps()); 
+				
+		Mockito.when(this.service.update(updated)).thenReturn(updated);
+
+		assertEquals(updated, this.controller.update());
+
+		Mockito.verify(this.repo, Mockito.times(1)).getLong();
+		Mockito.verify(this.repo, Mockito.times(2)).getString();
+		Mockito.verify(this.repo, Mockito.times(2)).getInt();
+		Mockito.verify(this.service, Mockito.times(1)).update(updated);
+	}
+	*/
 	
 }
