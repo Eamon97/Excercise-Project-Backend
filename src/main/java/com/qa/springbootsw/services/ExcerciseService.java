@@ -44,6 +44,7 @@ private ExcerciseRepo repo;
 	    	return this.repo.saveAndFlush(existing);
 	    }
 
+	    //delete
 	    public boolean delete(Long id) {
 	        
 	    	this.repo.deleteById(id);
