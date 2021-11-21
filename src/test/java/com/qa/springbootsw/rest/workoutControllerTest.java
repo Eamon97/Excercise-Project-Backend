@@ -41,6 +41,7 @@ public class workoutControllerTest {
 	@Autowired
 	private ObjectMapper mapper; 
 
+	@Autowired
 	private List<Excercise> excercises=Collections.unmodifiableList(new ArrayList<>());
 	
 	
