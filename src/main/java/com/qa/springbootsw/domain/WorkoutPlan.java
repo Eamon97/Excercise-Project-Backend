@@ -11,8 +11,10 @@ import javax.persistence.Id;
 
 import javax.persistence.OneToMany;
 
+import org.springframework.stereotype.Component;
 
 
+@Component
 @Entity
 public class WorkoutPlan {
 	
@@ -30,19 +32,20 @@ public class WorkoutPlan {
 	
 	
 	public WorkoutPlan() {	}
-
-	public WorkoutPlan(String dayOfWeek, List<Excercise> excercises) {
-		this.dayOfWeek = dayOfWeek;
-		this.excercises = excercises;
-	}
-
-	public WorkoutPlan(Long sessionID, String dayOfWeek, List<Excercise> excercises) {
+	
+public WorkoutPlan(Long sessionID, String dayOfWeek, List<Excercise> excercises) {
 		super();
 		this.sessionID = sessionID;
 		this.dayOfWeek = dayOfWeek;
 		this.excercises = excercises;
 	}
 
+	public WorkoutPlan(String dayOfWeek, List<Excercise> excercises) {
+		this.dayOfWeek = dayOfWeek;
+		this.excercises = excercises;
+	}
+
+	
 	public Long getSessionID() {
 		return sessionID;
 	}

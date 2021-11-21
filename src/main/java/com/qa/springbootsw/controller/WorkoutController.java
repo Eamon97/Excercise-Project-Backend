@@ -21,6 +21,7 @@ import com.qa.springbootsw.services.WorkoutService;
 public class WorkoutController {
 	
 	private WorkoutService service;
+	
 	// Constructor Injection
 		public WorkoutController(WorkoutService service) {
 			this.service = service;
@@ -38,22 +39,22 @@ public class WorkoutController {
 			return new ResponseEntity<List<WorkoutPlan>>(this.service.getAll(),HttpStatus.OK);
 		}
 		
-		@GetMapping("/getOne/{id}")
-		public ResponseEntity<WorkoutPlan> getOne(@PathVariable Long id) {
-			return new ResponseEntity<WorkoutPlan>(this.service.getOne(id),HttpStatus.OK);
+		@GetMapping("/getOne/{sessionID}")
+		public ResponseEntity<WorkoutPlan> getOne(@PathVariable Long sessionID) {
+			return new ResponseEntity<WorkoutPlan>(this.service.getOne(sessionID),HttpStatus.OK);
 		}
 		
 		// Update
-		@PutMapping("/update/{id}")
-		public ResponseEntity<WorkoutPlan> update(@PathVariable Long id, @RequestBody WorkoutPlan workoutPlan) {
-			return new ResponseEntity<WorkoutPlan>(this.service.update(id, workoutPlan), HttpStatus.ACCEPTED);
+		@PutMapping("/update/{sessionID}")
+		public ResponseEntity<WorkoutPlan> update(@PathVariable Long sessionID, @RequestBody WorkoutPlan workoutPlan) {
+			return new ResponseEntity<WorkoutPlan>(this.service.update(sessionID, workoutPlan), HttpStatus.ACCEPTED);
 		}
 		
 		//delete
-		  @DeleteMapping("/delete/{id}")
-		    public ResponseEntity<WorkoutPlan> removeExcercise(@PathVariable Long id) {
+		  @DeleteMapping("/delete/{sessionID}")
+		    public ResponseEntity<WorkoutPlan> removeExcercise(@PathVariable Long sessionID) {
 		        // Remove account and return it
-			  return this.service.delete(id) ? new ResponseEntity<WorkoutPlan>(HttpStatus.NO_CONTENT) 
+			  return this.service.delete(sessionID) ? new ResponseEntity<WorkoutPlan>(HttpStatus.NO_CONTENT) 
 						: new ResponseEntity<WorkoutPlan>(HttpStatus.INTERNAL_SERVER_ERROR);
 		    }
 		  

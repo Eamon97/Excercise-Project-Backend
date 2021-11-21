@@ -48,13 +48,13 @@ public class workoutControllerTest {
 	@Test
 	void testCreate() throws Exception {
 		
-		WorkoutPlan wp1 = new WorkoutPlan("tuesday", excercises);
+		WorkoutPlan wp1 = new WorkoutPlan("monday", excercises);
 		String wp1AsJSON = this.mapper.writeValueAsString(wp1);
 		RequestBuilder request = post("/WorkoutPlan/create").contentType(MediaType.APPLICATION_JSON).content(wp1AsJSON);
 
 		ResultMatcher checkStatus = status().isCreated(); 
 
-		WorkoutPlan wpSaved = new WorkoutPlan("tuesday",excercises);
+		WorkoutPlan wpSaved = new WorkoutPlan(1l,"monday",excercises);
 		String wpSavedAsJSON = this.mapper.writeValueAsString(wpSaved);
 
 		ResultMatcher checkBody = content().json(wpSavedAsJSON);
@@ -66,7 +66,7 @@ public class workoutControllerTest {
 	
 	@Test
 	void testGet() throws Exception {
-		WorkoutPlan wp1 = new WorkoutPlan("tuesday", excercises);
+		WorkoutPlan wp1 = new WorkoutPlan("monday", excercises);
 		
 		String wpAsJSON = this.mapper.writeValueAsString(wp1);
 		RequestBuilder request = get("/WorkoutPlan/getOne/1");
@@ -101,7 +101,7 @@ public class workoutControllerTest {
 
 		ResultMatcher checkStatus = status().isAccepted(); 
 
-		WorkoutPlan wp2 = new WorkoutPlan("thursday",excercises);
+		WorkoutPlan wp2 = new WorkoutPlan(2l,"thursday",excercises);
 		String wp2SavedAsJSON = this.mapper.writeValueAsString(wp2);
 
 		ResultMatcher checkBody = content().json(wp2SavedAsJSON);

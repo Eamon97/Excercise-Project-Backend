@@ -26,41 +26,45 @@ public class ExcerciseController {
 	
 		
 private ExcerciseService service;
-		// Constructor Injection
+
+	// Constructor Injection
 			public ExcerciseController(ExcerciseService service) {
 				this.service = service;
 			}
 		
 		
-		
+	//Create 	
 		
 		 @PostMapping("/create")
 		 public ResponseEntity<Excercise> addExcercise(@RequestBody Excercise excercise) {
 			 return new ResponseEntity<Excercise>(this.service.create(excercise), HttpStatus.CREATED);
 		 }
 		 
-		// Read // return the whole list
+	// Read whole list of excercises
+		 
 			@GetMapping("/getAll")
 			public ResponseEntity<List<Excercise>> getAll() {
 				return new ResponseEntity<List<Excercise>>(this.service.getAll(),HttpStatus.OK);
 			}
 			
-			@GetMapping("/getOne/{id}")
-			public ResponseEntity<Excercise> getOne(@PathVariable Long id) {
-				return new ResponseEntity<Excercise>(this.service.getOne(id),HttpStatus.OK);
+	//Read
+			@GetMapping("/getOne/{excerciseID}")
+			public ResponseEntity<Excercise> getOne(@PathVariable Long excerciseID) {
+				return new ResponseEntity<Excercise>(this.service.getOne(excerciseID),HttpStatus.OK);
 			}
 			
-			// Update
-			@PutMapping("/update/{id}")
-			public ResponseEntity<Excercise> update(@PathVariable Long id, @RequestBody Excercise excercise) {
-				return new ResponseEntity<Excercise>(this.service.update(id, excercise), HttpStatus.ACCEPTED);
+	// Update
+			@PutMapping("/update/{excerciseID}")
+			public ResponseEntity<Excercise> update(@PathVariable Long excerciseID, @RequestBody Excercise excercise) {
+				return new ResponseEntity<Excercise>(this.service.update(excerciseID, excercise), HttpStatus.ACCEPTED);
 			}
 			
-			//delete
-			  @DeleteMapping("/delete/{id}")
-			    public ResponseEntity<Excercise> removeExcercise(@PathVariable Long id) {
-			        // Remove account and return it
-				  return this.service.delete(id) ? new ResponseEntity<Excercise>(HttpStatus.NO_CONTENT) 
+	//Delete
+			  @DeleteMapping("/delete/{excerciseID}")
+			    public ResponseEntity<Excercise> removeExcercise(@PathVariable Long excerciseID) {
+			       
+	// Remove account and return it
+				  return this.service.delete(excerciseID) ? new ResponseEntity<Excercise>(HttpStatus.NO_CONTENT) 
 							: new ResponseEntity<Excercise>(HttpStatus.INTERNAL_SERVER_ERROR);
 			    }
 			  
