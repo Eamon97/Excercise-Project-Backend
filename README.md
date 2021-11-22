@@ -22,6 +22,8 @@ Setting up
 
 Create excercise assigning exercise name, muscle targeted, number of reps, number of sets. Assign excercise by excerciseID to a Workout plan using workoutplan sessionID.
 
+![image](https://user-images.githubusercontent.com/91898712/142902897-7e64cff6-b95c-4f5b-bb4b-f89f9ba7d2c2.png)
+
 And repeat
 
 until finished
@@ -30,7 +32,7 @@ Running the tests
 
 Unit Tests
 
-Junit testing, testing units of code in DAO to determine created objects are identical to the create command. Ensures code was executable and that objects were being created correctly
+Junit testing, 'mock' testing units of code for domain controller to determine created objects in front end and back end are identical. Ensures code was executable and that objects were being created correctly
 
 @Test public void testCreate() { final Item created = new Item(1, "ball", 4.99); assertEquals(created, DAO.create(created)); } Integration Tests
 
