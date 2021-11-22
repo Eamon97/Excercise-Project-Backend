@@ -8,7 +8,9 @@ Getting Started
 
 Create Backend using Springboot. Initialiase Entity for exercise and Workout Plan. Create Repo extending JPARepository. Create Service using JPARepository functions to produce CRUD functionality. Create controller to allow data transfer between backend and frontend. create testing files.
 
-Creating Frontend using VisualStudioCode
+Creating Frontend using VisualStudioCode.
+Create webpage html files and include any forms/scripts.
+create relating javascript files to webpages to handle data as JSON.
 
 Prerequisites
 
